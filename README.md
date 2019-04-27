@@ -1,3 +1,8 @@
+🙊
+
+![Download Audio](https://github.com/rodrigodata/ytdownloader/blob/master/img/audio_001.png "Baixando audio")
+
+
 # dependencias
 - python 3
 - pip
