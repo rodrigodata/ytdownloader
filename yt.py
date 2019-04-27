@@ -17,7 +17,7 @@ def inicia_download_audio():
 	youtube_link = input("[AUDIO] Por favor, informe a URL do video (YouTube): ")
 	print('Verificando URL..')
 	audio = YouTube(youtube_link, on_progress_callback=progress_Check)
-	print('Vídeo localizando, processando..')
+	print('Vídeo localizado, processando..')
 	configuracao_audio = audio.streams.filter(only_audio=True).first()
 	global tamanho_arquivo
 	tamanho_arquivo = configuracao_audio.filesize
