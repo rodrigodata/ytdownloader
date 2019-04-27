@@ -1,6 +1,7 @@
 # dependencias
 - python 3
 - pip
+- pytube
 
 # setup
 ```
