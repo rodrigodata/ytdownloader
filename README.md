@@ -1,6 +1,6 @@
 # dependencias
-python 3
-pip
+- python 3
+- pip
 
 # setup
 ```
