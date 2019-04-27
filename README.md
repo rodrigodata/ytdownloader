@@ -3,10 +3,13 @@ python 3
 pip
 
 # setup
+```
 chmod +x yt.py
-pip install -r requirements.txt
-./yt.py
 
+pip install -r requirements.txt
+
+./yt.py
+```
 # todo
 - local customizado para efetuar o download de video/audio
 - melhor barra de progresso de download
