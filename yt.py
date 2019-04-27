@@ -1,50 +1,26 @@
-#!/usr/bin/env python
-# Este script funciona tanto na versao python 2.x quanto 3.x
-
+#!/usr/bin/env python3
 from pytube import YouTube
 import os
 
-# on_progress_callback takes 4 parameters.
-def progress_Check(stream = None, chunk = None, file_handle = None, remaining = None):
-	#Gets the percentage of the file that has been downloaded.
-	percent = (100*(file_size-remaining))/file_size
-	print("{:00.0f}% baixado".format(percent))
-
-#Grabs the file path for Download
-def file_path():
+# Este script funciona tanto na versao python 2.x quanto 3.x
+#retorna o local de download padrao do sistema
+def caminho_arquivo():
 	home = os.path.expanduser('~')
-	download_path = os.path.join(home, 'Downloads')
-	return download_path
+	local_download = os.path.join(home, 'Downloads')
+	return local_download
 
-def start():
-	print("O seu video sera salvo em: {}".format(file_path()))
-
-	# espera pelo input do usuario com o link
-	yt_url = input("Copie e cole aqui o seu link do YouTube: ")
-
-	# mostra ao usuario link capturado
-	print(yt_url)
-	print ("Verificando URL..")
-
-	# Searches for the video and sets up the callback to run the progress indicator. 
+def inicia_download_audio():
+	youtube_link = input("[AUDIO] Por favor, informe a URL do video (YouTube): ")
+	print('Verificando URL..')
+	print(youtube_link)
 	try:
-		video = YouTube(yt_url, on_progress_callback=progress_Check)
+			audio = YouTube(youtube_link)
 	except:
-	 	print("ERROR. Check your:\n  -connection\n  -url is a YouTube url\n\nTry again.")
-	 	redo = start()
+			print('[ERRO] Por favor, verifique sua conexao ou a URL informada.')
+			a = inicia_download_audio()
 
-	#Get the first video type - usually the best quality.
-	video_type = video.streams.filter(progressive = True, file_extension = "mp4").first()
+	configuracao_audio = audio.streams.filter(only_audio=True).first()
+	titulo_video = audio.title
+	configuracao_audio.download(caminho_arquivo())
 
-	#Gets the title of the video 
-	title = video.title
-
-	#Prepares the file for download
-	print ("Fetching: {}...".format(title))
-	global file_size
-	file_size = video_type.filesize
-	#Starts the download process
-	video_type.download(file_path())
-
-file_size = 0
-begin = start()
+inicia = inicia_download_audio()
