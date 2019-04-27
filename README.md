@@ -14,12 +14,12 @@ chmod +x yt.py
 
 pip install -r requirements.txt
 
-./yt.py
+./yt.py #seu arquivo será salvo em ~/Downloads ou C:\Users\<SEU_USER>\Downloads
 ```
 # Todo
-- local customizado para efetuar o download de video/audio
-- melhor barra de progresso de download
 - implementar download de video
+- local customizado para efetuar o download de video/audio
+- melhorar barra de progresso de download
 - separar scripts audio, video e helpers
 
 # Backlog (?)
